@@ -19,11 +19,18 @@ default_raw_transforms = [
     Convert_3D_to_4D(),
 ]
 
-
+#import pdb
 # Helper Class for KITTI Raw Visualization
 class SimpleCalib:
     def __init__(self, calib_dict: Dict[str, Any]):
-        self.P2 = calib_dict['P_rect_02']
+        #self.P2 = calib_dict['P_rect_02']
+        self.P2 = np.array([
+            [996.60897068, 0, 608, 0], # 608 should be replaced
+            [0, 998.66191895, 545.70492376, 0],
+            [0, 0, 1, 0]],
+            dtype=np.float32)
+        #pdb.set_trace()
+        #print("...")
 
 
 class KITTIRawDataset(Dataset):
@@ -80,4 +87,9 @@ class KITTIRawDataset(Dataset):
                     value = value.reshape(3, 4)
             
             calib_dict.update({key: value})
+        #import pdb
+        #pdb.set_trace()
+        #print("HERE")
+        #calib_dict.keys()
+        #ict_keys(['calib_time', 'corner_dist', 'S_00', 'K_00', 'D_00', 'R_00', 'T_00', 'S_rect_00', 'R_rect_00', 'P_rect_00', 'S_01', 'K_01', 'D_01', 'R_01', 'T_01', 'S_rect_01', 'R_rect_01', 'P_rect_01', 'S_02', 'K_02', 'D_02', 'R_02', 'T_02', 'S_rect_02', 'R_rect_02', 'P_rect_02', 'S_03', 'K_03', 'D_03', 'R_03', 'T_03', 'S_rect_03', 'R_rect_03', 'P_rect_03'])
         return calib_dict

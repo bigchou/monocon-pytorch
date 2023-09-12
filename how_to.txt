@@ -1,0 +1,7 @@
+python test_raw.py --data_dir /home/iis/workspace/dataset/kitti_dataset/2011_09_26/2011_09_26_drive_0001_sync/image_03/data --calib_file /home/iis/workspace/dataset/kitti_dataset/2011_09_26/calib_cam_to_cam.txt --checkpoint_file best.pth --save_dir out.mp4 --gpu_id 0
+
+
+
+
+
+python test_raw.py --data_dir /home/iis/workspace/bts/pytorch/20230822_230014-00.00.22.922-00.01.09.469 --calib_file /home/iis/workspace/dataset/kitti_dataset/2011_09_26/calib_cam_to_cam.txt --checkpoint_file best.pth --save_dir mycam --gpu_id 0
